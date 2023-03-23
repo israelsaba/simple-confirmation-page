@@ -11,10 +11,10 @@
 - Choose "/" as public folder
 - don't rewrite index or 404
 - All else is standard, auto deploy when PR is your choice. If you have no idea, choose no.
-- When init is done add .[files] to gitignore and publish changes to github
-      firebase deploy
+- When init is done add .[filename] files to gitignore and publish changes to github
+```firebase deploy```
 - Access the page at the address provided
 ## Testing
-- No workflow available yet
+- Locate index.html, open it and refresh at each file save to check result
 ## Building
 - Push changes and check address provided
