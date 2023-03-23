@@ -17,12 +17,12 @@ exports.sendMpAdsDataAndForward = functions.https.onRequest((request, response) 
     //response.status(200).send(`URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
 });
 
-exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((request, response) => {
+exports.sendMpASubscriberDataAndForward = functions.https.onRequest((request, response) => {
     const parsedURL = url.parse(request.url, true);
     const queryParams = parsedURL.query
     const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
     const combinedObj = Object.assign(parsedURL, queryParams);
-    if (combinedObj?.email){
+    if (combinedObj?.email) {
         //mixpanel.register({ Email: combinedObj.email, convertkitId: combinedObj.ck_subscriber_id });
         //mixpanel.identify(combinedObj.ck_subscriber_id);
         mixpanel.people.set({
@@ -32,6 +32,17 @@ exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((requ
     }
     mixpanel.track('New subscriber', combinedObj);
     const forwardURL = `https://investorhub.app/obrigado-inscrito`
+    response.redirect(forwardURL);
+    //response.status(200).send(`URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
+});
+
+exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((request, response) => {
+    const parsedURL = url.parse(request.url, true);
+    const queryParams = parsedURL.query
+    const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
+    const combinedObj = Object.assign(parsedURL, queryParams);
+    mixpanel.track('Email confirmation clicked', combinedObj);
+    const forwardURL = `https://calendly.com/israel-saba/investorhub-app`
     response.redirect(forwardURL);
     //response.status(200).send(`URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
 });
