@@ -21,8 +21,11 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-861340398"></script>
     <script>
-        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date()); gtag('config', 'AW-861340398'); 
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-861340398');
     </script>
 </head>
 
@@ -91,7 +94,7 @@
         for (let [key, value] of urlParams.entries()) {
             paramsObj[key] = value;
         }
-        
+
         mixpanel.track('Schedule created', paramsObj);
     </script>
 </body>
