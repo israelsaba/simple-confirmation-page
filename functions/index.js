@@ -22,7 +22,7 @@ exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((requ
     const queryParams = parsedURL.query
     const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
     const combinedObj = Object.assign(parsedURL, queryParams); 
-    mixpanel.track('Ad clicked', combinedObj);
+    mixpanel.track('New subscriber', combinedObj);
     const forwardURL = `https://investorhub.app/obrigado-inscrito`
     response.redirect(forwardURL);
     //response.status(200).send(`URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
