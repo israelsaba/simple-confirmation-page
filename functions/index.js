@@ -9,7 +9,7 @@ const url = require('url');
 exports.sendMpAdsDataAndForward = functions.https.onRequest((request, response) => {
     const parsedURL = url.parse(request.url, true);
     const queryParams = parsedURL.query
-    const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', {debug: true});
+    const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
     const combinedObj = Object.assign(parsedURL, queryParams); 
     mixpanel.track('Ad clicked', combinedObj);
     const forwardURL = `https://investorhub.app`
@@ -20,7 +20,7 @@ exports.sendMpAdsDataAndForward = functions.https.onRequest((request, response) 
 exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((request, response) => {
     const parsedURL = url.parse(request.url, true);
     const queryParams = parsedURL.query
-    const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', {debug: true});
+    const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
     const combinedObj = Object.assign(parsedURL, queryParams); 
     mixpanel.track('Ad clicked', combinedObj);
     const forwardURL = `https://investorhub.app/obrigado-inscrito`
