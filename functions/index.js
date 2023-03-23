@@ -11,5 +11,5 @@ const querystring = require('querystring');
 exports.sendMpDataAndForward = functions.https.onRequest((request, response) => {
     const parsedURL = url.parse(request.url, true);
     const queryData = querystring.parse(parsedURL.query);
-    response.status(200).send(`Data is: ${JSON.stringify(queryData, null, 2)}`);
+    response.status(200).send(`Data is: ${JSON.stringify(queryData, null, 2)} URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
 });
