@@ -2,9 +2,9 @@
 ## Setting-up
 - Fork it
 - On bash
-      npm install -g firebase-tool
-      firebase login
-      firebase init
+`npm install -g firebase-tool`
+`firebase login`
+`firebase init`
 - Choose a project or create a new one
 - Firebase hosting (first option)
 - Choose your forked repository on github
