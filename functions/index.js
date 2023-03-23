@@ -22,13 +22,14 @@ exports.sendMpAEmailConfirmationDataAndForward = functions.https.onRequest((requ
     const queryParams = parsedURL.query
     const mixpanel = Mixpanel.init('73b777655a43f335b97bc9bb8cbf4700');
     const combinedObj = Object.assign(parsedURL, queryParams);
-    mixpanel.identify(combinedObj.ck_subscriber_id);
-    mixpanel.register({ Email: combinedObj.email, convertkitId: combinedObj.ck_subscriber_id });
-    if (combinedObj?.email)
+    if (combinedObj?.email){
+        mixpanel.register({ Email: combinedObj.email, convertkitId: combinedObj.ck_subscriber_id });
+        mixpanel.identify(combinedObj.ck_subscriber_id);
         mixpanel.people.set({
             $email: combinedObj.email,
             convertkitId: combinedObj.ck_subscriber_id
         });
+    }
     mixpanel.track('New subscriber', combinedObj);
     const forwardURL = `https://investorhub.app/obrigado-inscrito`
     response.redirect(forwardURL);
