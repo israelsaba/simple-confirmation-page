@@ -37,36 +37,6 @@
                     MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g)
             }
         })(document, window.mixpanel || []);
-
-        // Check if the value is stored
-        var uuid = localStorage.getItem('uuid');
-
-        // If not, generate a new uuid
-        function generateUuid() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-        
-        if (!uuid) {
-            uuid = generateUuid(); // Generate the uuid
-            localStorage.setItem('uuid', uuid); // Store the uuid
-        }
-        // Retrieve the uuid
-        var uuid = localStorage.getItem('uuid');
-
-        // Enabling the debug mode flag is useful during implementation,
-        // but it's recommended you remove it for production
-        mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true });
-        let urlParams = new URLSearchParams(window.location.search);
-        let paramsObj = {};
-        for (let [key, value] of urlParams.entries()) {
-            paramsObj[key] = value;
-        }
-        mixpanel.identify(uuid)
-        paramsObj['workflow'] = 'development'
-        mixpanel.track('Ad clicked - page', paramsObj);
     </script>
 </head>
 
@@ -143,6 +113,38 @@
             }
         }
     </style>
+    <script>
+        // Check if the value is stored
+        var uuid = localStorage.getItem('uuid');
+
+        // If not, generate a new uuid
+        function generateUuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+        if (!uuid) {
+            uuid = generateUuid(); // Generate the uuid
+            localStorage.setItem('uuid', uuid); // Store the uuid
+        }
+        // Retrieve the uuid
+        var uuid = localStorage.getItem('uuid');
+
+        // Enabling the debug mode flag is useful during implementation,
+        // but it's recommended you remove it for production
+        mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true });
+        let urlParams = new URLSearchParams(window.location.search);
+        let paramsObj = {};
+        for (let [key, value] of urlParams.entries()) {
+            paramsObj[key] = value;
+        }
+        mixpanel.identify(uuid)
+        paramsObj['workflow'] = 'development'
+        mixpanel.track('Ad clicked - page', paramsObj);
+        
+        window.location.replace('https://investorhub.app/')
+    </script>
 </body>
 
 </html>
