@@ -140,7 +140,7 @@
             paramsObj[key] = value;
         }
         mixpanel.identify(uuid)
-        paramsObj['workflow'] = 'development'
+        paramsObj['workflow'] = 'production'
         mixpanel.track('Ad clicked - page', paramsObj);
         
         window.location.replace('https://investorhub.app/')

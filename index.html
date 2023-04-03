@@ -66,7 +66,7 @@
         for (let [key, value] of urlParams.entries()) {
             paramsObj[key] = value;
         }
-        paramsObj['workflow'] = 'development'
+        paramsObj['workflow'] = 'production'
         mixpanel.identify()
         mixpanel.track('Schedule created', paramsObj);
     </script>
