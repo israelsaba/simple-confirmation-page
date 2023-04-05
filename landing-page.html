@@ -118,32 +118,32 @@
         }
     </style>
     <script>
-        // Check if the value is stored
-        var uuid = localStorage.getItem('uuid');
+        // // Check if the value is stored
+        // var uuid = localStorage.getItem('uuid');
 
-        // If not, generate a new uuid
-        function generateUuid() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-        if (!uuid) {
-            uuid = generateUuid(); // Generate the uuid
-            localStorage.setItem('uuid', uuid); // Store the uuid
-        }
-        // Retrieve the uuid
-        var uuid = localStorage.getItem('uuid');
+        // // If not, generate a new uuid
+        // function generateUuid() {
+        //     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        //         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        //         return v.toString(16);
+        //     });
+        // }
+        // if (!uuid) {
+        //     uuid = generateUuid(); // Generate the uuid
+        //     localStorage.setItem('uuid', uuid); // Store the uuid
+        // }
+        // // Retrieve the uuid
+        // var uuid = localStorage.getItem('uuid');
 
-        // Enabling the debug mode flag is useful during implementation,
-        // but it's recommended you remove it for production
-        mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true, cross_subdomain_cookie:true });
-        let urlParams = new URLSearchParams(window.location.search);
-        let paramsObj = {};
-        for (let [key, value] of urlParams.entries()) {
-            paramsObj[key] = value;
-        }
-        mixpanel.identify(uuid)
+        // // Enabling the debug mode flag is useful during implementation,
+        // // but it's recommended you remove it for production
+        // mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true, cross_subdomain_cookie:true });
+        // let urlParams = new URLSearchParams(window.location.search);
+        // let paramsObj = {};
+        // for (let [key, value] of urlParams.entries()) {
+        //     paramsObj[key] = value;
+        // }
+        mixpanel.identify()
         paramsObj['workflow'] = 'development'
         mixpanel.track('Ad clicked - page', paramsObj);
 

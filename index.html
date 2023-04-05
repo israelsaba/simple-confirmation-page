@@ -41,25 +41,25 @@
             }
         })(document, window.mixpanel || []);
 
-        // Check if the value is stored
-        var uuid = localStorage.getItem('uuid');
+        // // Check if the value is stored
+        // var uuid = localStorage.getItem('uuid');
 
-        // If not, generate a new uuid
-        function generateUuid() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-        // If not, generate a new uuid
-        if (!uuid) {
-            console.log('Generating UUID')
-            uuid = generateUuid(); // Generate the uuid
-            localStorage.setItem('uuid', uuid); // Store the uuid
-        }
+        // // If not, generate a new uuid
+        // function generateUuid() {
+        //     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        //         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        //         return v.toString(16);
+        //     });
+        // }
+        // // If not, generate a new uuid
+        // if (!uuid) {
+        //     console.log('Generating UUID')
+        //     uuid = generateUuid(); // Generate the uuid
+        //     localStorage.setItem('uuid', uuid); // Store the uuid
+        // }
 
-        // Retrieve the uuid
-        var uuid = localStorage.getItem('uuid');
+        // // Retrieve the uuid
+        // var uuid = localStorage.getItem('uuid');
 
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
