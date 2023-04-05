@@ -63,7 +63,7 @@
 
         // Enabling the debug mode flag is useful during implementation,
         // but it's recommended you remove it for production
-        mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true });
+        mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true, cross_subdomain_cookie:true });
         let urlParams = new URLSearchParams(window.location.search);
         let paramsObj = {};
         for (let [key, value] of urlParams.entries()) {
