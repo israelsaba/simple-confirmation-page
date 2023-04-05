@@ -19,13 +19,17 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/mystyle.css" rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-861340398"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DNXJ0E3NM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        gtag('set', 'linker', {
+            'domains': ['investorhub.app', 'confirmation-landing.investorhub.app']
+        });
         gtag('js', new Date());
 
-        gtag('config', 'AW-861340398');
+        gtag('config', 'G-2DNXJ0E3NM');
     </script>
     <script>
         (function (f, b) {
@@ -140,9 +144,9 @@
             paramsObj[key] = value;
         }
         mixpanel.identify(uuid)
-        paramsObj['workflow'] = 'production'
+        paramsObj['workflow'] = 'development'
         mixpanel.track('Ad clicked - page', paramsObj);
-        
+
         window.location.replace('https://investorhub.app/')
     </script>
 </body>

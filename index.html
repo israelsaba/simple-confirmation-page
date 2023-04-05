@@ -19,13 +19,16 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/mystyle.css" rel="stylesheet" />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-861340398"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DNXJ0E3NM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
+        gtag('set', 'linker', {
+            'domains': ['investorhub.app', 'confirmation-landing.investorhub.app']
+        });
         gtag('js', new Date());
 
-        gtag('config', 'AW-861340398');
+        gtag('config', 'G-2DNXJ0E3NM');
     </script>
     <script>
         (function (f, b) {
@@ -66,7 +69,7 @@
         for (let [key, value] of urlParams.entries()) {
             paramsObj[key] = value;
         }
-        paramsObj['workflow'] = 'production'
+        paramsObj['workflow'] = 'development'
         mixpanel.identify()
         mixpanel.track('Schedule created', paramsObj);
     </script>
