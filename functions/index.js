@@ -34,7 +34,7 @@ exports.sendMpASubscriberDataAndForward = functions.https.onRequest((request, re
         });
     }
     mixpanel.track('New subscriber', combinedObj);
-    const forwardURL = `https://investorhub.app/obrigado-inscrito`
+    const forwardURL = `https://investorhub.app/obrigado-inscrito`+ combinedObj.href
     response.redirect(forwardURL);
     //response.status(200).send(`URL parsed is ${JSON.stringify(parsedURL, null, 2)}`);
 });
