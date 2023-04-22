@@ -143,7 +143,7 @@
         // for (let [key, value] of urlParams.entries()) {
         //     paramsObj[key] = value;
         // }
-        
+
         mixpanel.init('73b777655a43f335b97bc9bb8cbf4700', { debug: true, cross_subdomain_cookie: true });
 
         mixpanel.identify()
@@ -153,10 +153,7 @@
             paramsObj[key] = value;
         }
         paramsObj['workflow'] = 'development'
-        mixpanel.track('Ad clicked - page', paramsObj, () => window.location.replace('https://investorhub.app/'));
-
-
-
+        mixpanel.track('Ad clicked - page', paramsObj, () => window.location.replace('https://investorhub.app/?gclid=' + paramsObj.gclid));
     </script>
 </body>
 
