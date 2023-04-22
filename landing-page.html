@@ -152,7 +152,7 @@
         for (let [key, value] of urlParams.entries()) {
             paramsObj[key] = value;
         }
-        paramsObj['workflow'] = 'development'
+        paramsObj['workflow'] = 'production'
         mixpanel.track('Ad clicked - page', paramsObj, () => window.location.replace('https://investorhub.app/?gclid=' + paramsObj.gclid));
     </script>
 </body>
