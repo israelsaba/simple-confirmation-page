@@ -153,6 +153,7 @@
             paramsObj[key] = value;
         }
         paramsObj['workflow'] = 'production'
+        paramsObj['assessoria'] = true
         mixpanel.track('Ad clicked - page', paramsObj, () => window.location.replace('https://sababa.ck.page//?gclid=' + paramsObj.gclid));
     </script>
 </body>
