@@ -141,6 +141,7 @@
         }
         mixpanel.identify(uuid)
         paramsObj['workflow'] = 'production'
+        paramsObj['assessoria'] = true
         mixpanel.track('Ad clicked - page', paramsObj);
         
         window.location.replace('https://sababa.ck.page')
